@@ -12,11 +12,10 @@ $gmail = Gmail.connect!(ENV['USERNAME'], ENV['PASSWORD'])
 
 # On configure la méthode qui envoie les mails
 def send_mails
-  i = 30
+  i = 2
 
 # On itère sur la taille du googlesheet obtenu  
-#  while i < $data.size + 1
-  while i < 35
+while i < $data.size + 1
 
     $gmail.deliver do
       to $ws[i,2]
@@ -35,7 +34,7 @@ def send_mails
   i += 1
 
 # On met un petit sleep pour ne pas trop spammer nos chères mairies  
-  sleep(60)
+  sleep(30)
   end
 end
 
@@ -44,10 +43,11 @@ def my_html_mail(name)
 
       "<p> Bonjour</p>
       <p> Je voudrais vous parler d'une formation que je suis actuellement, <strong> The Hacking Project</strong>. </p>
-      <p> Il permet de se former <strong> gratuitement </strong> au langage informatique en 3 mois. </p>
+      <p> Elle permet de se former <strong> gratuitement </strong> et à distance, à des langages informatiques. Le tout... en 3 mois !</p>
       <p> Si vous pensez que cela pourrait vous intéresser à #{name}, je pense que vous avez raison :) </p>
-      <p> Pour plus d'info, je vous conseille d'aller jeter un coup d'oeil <a href='https://www.thehackingproject.org'> par ici ! </a> </p>
-      <p> Bonne journée ! </p>
+      <p> Pour plus d'infos, je vous conseille d'aller jeter un coup d'oeil <a href='https://www.thehackingproject.org'> par ici ! </a> </p>
+      <p> Sinon, vous pouvez contacter directement Charles, le responsable de la formation, au 06.95.46.60.80 ! Il sera ravi de répondre à toutes vos questions.</p>
+      <p> Très bonne journée à vous :) </p>
       <p> Lucy </p>"
 end
 

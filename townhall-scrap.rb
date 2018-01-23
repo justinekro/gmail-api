@@ -8,10 +8,10 @@ $data = Hash.new
 def get_all_the_urls_of_val_doise_townhalls
 
 # On initialise une variable globale ($) array, dans laquelle on stockera les bouts de lien
-  page_townhal = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html")) 
+  page_townhal = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-de-marne.html")) 
 
 # Je crée un tableau qui stocke tous mes fins d'URL pour chaque ville, sous format ./95/nom-ville
-  return result = page_townhal.css('a[href*="95"]').map{|link| link["href"]}
+  return result = page_townhal.css('a[href*="94"]').map{|link| link["href"]}
 end
 
 # On crée une Méthode qui récupère l'adresse email d'un tableau de mairues à partir de l'URL d'une mairie
